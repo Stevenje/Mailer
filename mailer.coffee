@@ -7,7 +7,7 @@ smtpTransport = nodemailer.createTransport "SMTP",
         pass: "XXXX"
 
 mailOptions =
-	from: "Fred Foo ✔ <foo@blurdybloop.com>"
+	from: "Fred Foo <foo@blurdybloop.com>"
 	to: "snevets@gmail.com"
 	subject: "SUBJECT LINE"
 	text: "THIS IS TEXT"

@@ -38,7 +38,7 @@ exports.addProfile = (req, res) ->
   profile = req.body
   console.log "Adding profile: " + JSON.stringify(profile)
   db.collection "profiles", (err, collection) ->
-    collection.insert wine,
+    collection.insert profile,
       safe: true
     , (err, result) ->
       if err

@@ -1,6 +1,6 @@
 mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost/mailer') #connect to mailer db
+mongoose.connect('mongodb://localhost/mailer') #connect
 
 Schema = mongoose.Schema
 
