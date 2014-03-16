@@ -11,7 +11,11 @@
     <ul class="list-unstyled">
       <li class="profile" ng-repeat="person in app.people">
           <img src="{{person.avatar_url}}" alt="{{person.login}}" class="img-circle">
-          <h3>{{person.login}}</h3> <p>{{person.id}}</p>
+          <h3>{{person.name}} @ {{person.company}}</h3> 
+          <h4>{{person.login}}</h4>
+          <a href="mailto:{{person.email}}">
+            <p>{{person.email}}</p>
+          </a>
           <button type="button" class="btn btn-primary">Email</button>
       </li>
     </ul>
