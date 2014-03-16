@@ -34,17 +34,7 @@
         <entry file="file://$PROJECT_DIR$/server.coffee">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-              <caret line="12" column="47" selection-start="365" selection-end="365" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-              <caret line="0" column="0" selection-start="0" selection-end="0" />
+              <caret line="17" column="37" selection-start="493" selection-end="493" />
               <folding />
             </state>
           </provider>
@@ -96,7 +86,7 @@
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="345">
-              <caret line="9" column="33" selection-start="190" selection-end="190" />
+              <caret line="9" column="29" selection-start="186" selection-end="186" />
               <folding />
             </state>
           </provider>
@@ -105,8 +95,8 @@
       <file leaf-file-name="app.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-              <caret line="6" column="9" selection-start="156" selection-end="156" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+              <caret line="5" column="21" selection-start="176" selection-end="176" />
               <folding />
             </state>
           </provider>
@@ -116,7 +106,7 @@
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.13740458" vertical-offset="0" max-vertical-offset="655">
-              <caret line="6" column="6" selection-start="129" selection-end="129" />
+              <caret line="6" column="0" selection-start="131" selection-end="131" />
               <folding />
             </state>
           </provider>
@@ -149,10 +139,10 @@
         <option value="$PROJECT_DIR$/mailer.coffee" />
         <option value="$PROJECT_DIR$/mongo.coffee" />
         <option value="$PROJECT_DIR$/data-pull.coffee" />
+        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/server.coffee" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/app.coffee" />
-        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -452,26 +442,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="510">
+          <caret line="2" column="0" selection-start="75" selection-end="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="345">
-          <caret line="9" column="33" selection-start="190" selection-end="190" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-          <caret line="6" column="9" selection-start="156" selection-end="156" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="655">
-          <caret line="0" column="0" selection-start="0" selection-end="0" />
+          <caret line="9" column="29" selection-start="186" selection-end="186" />
           <folding />
         </state>
       </provider>
@@ -479,7 +461,15 @@
     <entry file="file://$PROJECT_DIR$/server.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-          <caret line="12" column="47" selection-start="365" selection-end="365" />
+          <caret line="17" column="37" selection-start="493" selection-end="493" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+          <caret line="5" column="21" selection-start="176" selection-end="176" />
           <folding />
         </state>
       </provider>
@@ -487,7 +477,7 @@
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13740458" vertical-offset="0" max-vertical-offset="655">
-          <caret line="6" column="6" selection-start="129" selection-end="129" />
+          <caret line="6" column="0" selection-start="131" selection-end="131" />
           <folding />
         </state>
       </provider>

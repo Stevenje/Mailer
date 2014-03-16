@@ -1,7 +1,6 @@
-app = angular.module "app", []
+app = angular.module("app", [])
 
-app.controller "AppCtrl", ($http) ->
-  app = @
-  $http.get "http://localhost:3000/profiles"
-    .success (data) ->
-      app.profiles = data
+app.controller "AppCtrl", ($http, $scope) ->
+  app = this
+  $http.get("http://localhost:3000/profiles").success (data) ->
+    app.people = data
