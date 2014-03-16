@@ -1,21 +1,17 @@
-mongoose = require('mongoose')
+mongo = require("mongodb")
+Server = mongo.Server
+Db = mongo.Db
+BSON = mongo.BSONPure
+server = new Server("localhost", 27017,
+  auto_reconnect: true
+)
 
-mongoose.connect('mongodb://localhost/mailer') #connect
+db = new Db("githubdb", server)
+db.open (err, db) ->
+  unless err
+    console.log "Connected to 'githubdb' database"
 
-Schema = mongoose.Schema
-
-profile = new Schema
-  username:  String
-  userimage: String
-  body:   String
-  comments: [
-    body: String
-    date: Date
-  ]
-  date:
-    type: Date
-    default: Date.now()
-  hidden: Boolean
-  meta:
-    votes: Number
-    favs: Number
+db.collection "profiles", (err, collection) ->
+  collection.insert wines,
+    safe: true
+  , (err, result) ->

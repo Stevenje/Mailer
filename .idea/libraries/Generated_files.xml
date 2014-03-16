@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/routes/profiles.js" />
+        <item url="file://$PROJECT_DIR$/mailer.js" />
+        <item url="file://$PROJECT_DIR$/mongo.js" />
+        <item url="file://$PROJECT_DIR$/data-pull.js" />
+        <item url="file://$PROJECT_DIR$/server.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/routes/profiles.js" />
+      <root url="file://$PROJECT_DIR$/mailer.js" />
+      <root url="file://$PROJECT_DIR$/mongo.js" />
+      <root url="file://$PROJECT_DIR$/data-pull.js" />
+      <root url="file://$PROJECT_DIR$/server.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
