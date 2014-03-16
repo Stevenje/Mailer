@@ -25,7 +25,7 @@ gitdata = (lang, location, page) ->
     console.log 'Total Users found: ' + body.total_count
     profilearray = body.items
     console.log profilearray
-    
+
     for profile in profilearray
       db.collection "profiles", (err, collection) ->
         collection.insert profile,
