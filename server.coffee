@@ -12,6 +12,7 @@ app.get "/profiles/:id", profiles.findById
 app.post "/profiles", profiles.addProfile
 app.put "/profiles/:id", profiles.updateProfile
 app.delete "/wines/:id", profiles.deleteProfile
+app.post "/email", profiles.sendEmail
 
 # Listen on port 3000 ;)
 app.listen 3000

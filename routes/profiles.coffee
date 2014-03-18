@@ -82,3 +82,15 @@ exports.deleteProfile = (req, res) ->
         console.log "" + result + " document(s) deleted"
         res.send req.body
 
+exports.sendEmail = (req, res) ->
+  profile = req.body
+  console.log "Emailing profile: " + JSON.stringify(profile)
+#  db.collection "profiles", (err, collection) ->
+#    collection.insert profile,
+#      safe: true
+#    , (err, result) ->
+#      if err
+#        res.send error: "An error has occurred"
+#      else
+#        console.log "Success: " + JSON.stringify(result[0])
+#        res.send result[0]
