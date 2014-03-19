@@ -11,7 +11,11 @@ profiles = require("./routes/profiles");
 
 app = express();
 
-app.use(cors());
+app.configure(function() {
+  app.use(express.logger("dev"));
+  app.use(express.bodyParser());
+  return app.use(cors());
+});
 
 app.get("/profiles", profiles.findAll);
 

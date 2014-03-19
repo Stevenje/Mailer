@@ -1,19 +1,18 @@
 var app = angular.module("app", []);
 
 app.controller("AppCtrl", function($http) {
-    var  that = this;
+    var  app = this;
     $http.get("http://localhost:3000/profiles")
         .success(function(data) {
-            that.people = data;
+            app.people = data;
         })
 
-    app.sendEmail = function(person) {    
+    app.sendEmail = function(person){
+        console.log("in function, data: " + person)
         $http.post("http://localhost:3000/email", person)
-            .success(function() {
-                console.log("success");
+            .success(function(data){
+                console.log(data)
             })
-	    
-
-
     }
+    
 })

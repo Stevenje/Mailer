@@ -4,7 +4,13 @@ cors = require("cors")
 profiles = require("./routes/profiles") # Hook up to Mongo 
 
 app = express()
-app.use(cors())
+
+app.configure ->
+  app.use express.logger("dev") # 'default', 'short', 'tiny', 'dev'
+  app.use express.bodyParser() #read body of responces
+  app.use(cors()) #all cross-site requests
+
+
 
 # Rest API Implimentation
 app.get "/profiles", profiles.findAll

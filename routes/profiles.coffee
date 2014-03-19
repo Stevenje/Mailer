@@ -85,6 +85,8 @@ exports.deleteProfile = (req, res) ->
 exports.sendEmail = (req, res) ->
   profile = req.body
   console.log "Emailing profile: " + JSON.stringify(profile)
+
+
 #  db.collection "profiles", (err, collection) ->
 #    collection.insert profile,
 #      safe: true
