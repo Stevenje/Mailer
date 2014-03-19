@@ -12,7 +12,7 @@ smtpTransport = nodemailer.createTransport "SMTP",
   service: "Gmail"
   auth:
     user: "snevets@gmail.com"
-    pass: "hashtaggeneral123gmail"
+    pass: "XXXXX"
 
 db = new Db("githubdb", server)
 db.open (err, db) ->
@@ -64,7 +64,7 @@ exports.updateProfile = (req, res) ->
   db.collection "profiles", (err, collection) ->
     collection.update
       _id: new BSON.ObjectID(id)
-    , wine,
+    , profile,
       safe: true
     , (err, result) ->
       if err
@@ -92,22 +92,22 @@ exports.deleteProfile = (req, res) ->
 
 exports.sendEmail = (req, res) ->
   profile = req.body
-  console.log "Emailing profile: " + JSON.stringify(profile)
+  console.log "Emailing: " + JSON.stringify(profile.name)
 
   mailOptions =
     from: "snevets@gmail.com"
     to: "snevets@gmail.com"
-    subject: profile.login
-    text: "Hi" + profile.name
+    subject: "FAO: #{profile.name} - Leading European Tech Startup - London"
+    text: "Hi #{profile.name.split(" ")[0]},"
 
   smtpTransport.sendMail mailOptions, (error, response) ->
     if error
       console.log error
     else
       console.log "Message sent: " + response.message
-      res.send response.message
+      res.send "Email sent to: #{profile.name}, id:#{profile._id}"
+      smtpTransport.close()
 
-  smtpTransport.close()
 
 
 #  db.collection "profiles", (err, collection) ->

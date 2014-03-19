@@ -21,7 +21,7 @@ db.open(function(err, db) {
   }
 });
 
-request = require('request-json');
+request = require("request-json");
 
 frequest = require("request");
 
@@ -29,43 +29,54 @@ client = request.newClient('https://api.github.com/');
 
 lang = 'ruby';
 
-location = 'london';
+location = 'London';
 
-page = 7;
+page = 4;
 
 gitdata = function(lang, location, page) {
   return client.get('search/users?q=location:' + location + '+language:' + lang + '&page=' + page, function(err, res, body) {
     var profile, profilearray, _i, _len, _results;
-    console.log('Total Users found: ' + body.total_count);
-    profilearray = body.items;
-    _results = [];
-    for (_i = 0, _len = profilearray.length; _i < _len; _i++) {
-      profile = profilearray[_i];
-      _results.push(db.collection("profiles", function(err, collection) {
-        var options;
-        options = {
-          url: profile.url,
-          headers: {
-            'User-Agent': 'Kontak'
-          },
-          json: true
-        };
-        return frequest(options, function(error, responce, body) {
-          if (body.email === null) {
-            return null;
-          } else if (body.email === "") {
-            return null;
-          } else if (body.site_admin === true) {
-            return null;
+    if (err) {
+      return console.log(err);
+    } else {
+      console.log('Total Users found: ' + body.total_count);
+      profilearray = body.items;
+      _results = [];
+      for (_i = 0, _len = profilearray.length; _i < _len; _i++) {
+        profile = profilearray[_i];
+        _results.push(db.collection("profiles", function(err, collection) {
+          var options;
+          if (err) {
+            console.log(err);
           } else {
-            return collection.insert(body, {
-              safe: true
-            }, function(err, result) {});
+            options = {
+              url: profile.url,
+              headers: {
+                'User-Agent': 'Kontak'
+              },
+              json: true
+            };
+            frequest(options, function(error, responce, body) {
+              if (error) {
+                return console.log(error);
+              } else if (body.email === null) {
+                return null;
+              } else if (body.email === "") {
+                return null;
+              } else if (body.site_admin === true) {
+                return null;
+              } else {
+                return collection.insert(body, {
+                  safe: true
+                }, function(err, result) {});
+              }
+            });
           }
-        });
-      }));
+          return console.log("Adding GitHub user " + profile.login + " to the DB");
+        }));
+      }
+      return _results;
     }
-    return _results;
   });
 };
 

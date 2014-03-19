@@ -19,7 +19,7 @@ smtpTransport = nodemailer.createTransport("SMTP", {
   service: "Gmail",
   auth: {
     user: "snevets@gmail.com",
-    pass: "hashtaggeneral123gmail"
+    pass: "XXXXX"
   }
 });
 
@@ -88,7 +88,7 @@ exports.updateProfile = function(req, res) {
   return db.collection("profiles", function(err, collection) {
     return collection.update({
       _id: new BSON.ObjectID(id)
-    }, wine, {
+    }, profile, {
       safe: true
     }, function(err, result) {
       if (err) {
@@ -129,20 +129,20 @@ exports.deleteProfile = function(req, res) {
 exports.sendEmail = function(req, res) {
   var mailOptions, profile;
   profile = req.body;
-  console.log("Emailing profile: " + JSON.stringify(profile));
+  console.log("Emailing: " + JSON.stringify(profile.name));
   mailOptions = {
     from: "snevets@gmail.com",
     to: "snevets@gmail.com",
-    subject: profile.login,
-    text: "Hi" + profile.name
+    subject: "FAO: " + profile.name + " - Leading European Tech Startup - London",
+    text: "Hi " + (profile.name.split(" ")[0]) + ","
   };
-  smtpTransport.sendMail(mailOptions, function(error, response) {
+  return smtpTransport.sendMail(mailOptions, function(error, response) {
     if (error) {
       return console.log(error);
     } else {
       console.log("Message sent: " + response.message);
-      return res.send(response.message);
+      res.send("Email sent to: " + profile.name + ", id:" + profile._id);
+      return smtpTransport.close();
     }
   });
-  return smtpTransport.close();
 };
