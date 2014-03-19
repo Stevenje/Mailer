@@ -1,10 +1,18 @@
 mongo = require("mongodb")
+nodemailer = require("nodemailer")
+
 Server = mongo.Server
 Db = mongo.Db
 BSON = mongo.BSONPure
 server = new Server("localhost", 27017,
   auto_reconnect: true
 )
+
+smtpTransport = nodemailer.createTransport "SMTP",
+  service: "Gmail"
+  auth:
+    user: "snevets@gmail.com"
+    pass: "hashtaggeneral123gmail"
 
 db = new Db("githubdb", server)
 db.open (err, db) ->
@@ -85,6 +93,21 @@ exports.deleteProfile = (req, res) ->
 exports.sendEmail = (req, res) ->
   profile = req.body
   console.log "Emailing profile: " + JSON.stringify(profile)
+
+  mailOptions =
+    from: "snevets@gmail.com"
+    to: "snevets@gmail.com"
+    subject: profile.login
+    text: "Hi" + profile.name
+
+  smtpTransport.sendMail mailOptions, (error, response) ->
+    if error
+      console.log error
+    else
+      console.log "Message sent: " + response.message
+      res.send response.message
+
+  smtpTransport.close()
 
 
 #  db.collection "profiles", (err, collection) ->
