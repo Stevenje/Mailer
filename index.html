@@ -65,8 +65,14 @@
                   </a>
                   <p>{{person.bio}}</p>
                   <h5>Repos: {{person.repos.length}}</h5>
-                  <h5>Distribution:</h5>
-                  <div class="size-chart pure-g" ng-repeat="(language, value) in $parent.app.repoDistribution(person.repos)">
+
+                  <progress>
+                    <bar ng-repeat="(language, value) in $parent.app.repoDistribution(person.repos)" value="value" id="{{language}}">
+                      <span tooltip-placement="bottom" tooltip="{{language}}">{{language}}</span>
+                    </bar>
+                  </progress>
+
+<!--                   <div class="size-chart pure-g" ng-repeat="(language, value) in $parent.app.repoDistribution(person.repos)">
                     <div style="width: {{ (value / $parent.person.repos.length)*100 }}%" class="size-chart-{{language}}" id="{{language}}" tooltip-placement="right" tooltip="{{language}}">
                       <span>{{language}}</span>
                       <p>{{value}}</p>
@@ -77,7 +83,7 @@
                     <li>
                       <a href="{{repo.html_url}}">{{repo.name}} </a>{{repo.language}}
                     </li>
-                  </ul>
+                  </ul> -->
                 </div>
                 <div class="col-md-2">
                   <button type="button" class="btn btn-primary" ng-click="$parent.app.sendEmail(person)">Email</button>

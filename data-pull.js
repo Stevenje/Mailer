@@ -99,4 +99,4 @@ getData = function(lang, location, page) {
   });
 };
 
-getData("python", "London", 1);
+getData("Go", "UK", 1);

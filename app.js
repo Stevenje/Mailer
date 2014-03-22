@@ -41,20 +41,20 @@ app.controller("AppCtrl", function($scope, $http) {
 
     $scope.isCollapsed = true;
 
-    // Pagination
-    $scope.filteredTodos = []
-    ,$scope.currentPage = 1
-    ,$scope.numPerPage = 10
-    ,$scope.maxSize = 5;
+    // // Pagination
+    // $scope.filteredTodos = []
+    // ,$scope.currentPage = 1
+    // ,$scope.numPerPage = 10
+    // ,$scope.maxSize = 5;
 
-    $scope.numPages = function () {
-        return Math.ceil(app.people.length / $scope.numPerPage);
-    };
+    // $scope.numPages = function () {
+    //     return Math.ceil(app.people.length / $scope.numPerPage);
+    // };
 
-    $scope.$watch('currentPage + numPerPage', function() {
-        var begin = (($scope.currentPage - 1) * $scope.numPerPage), end = begin + $scope.numPerPage;
+    // $scope.$watch('currentPage + numPerPage', function() {
+    //     var begin = (($scope.currentPage - 1) * $scope.numPerPage), end = begin + $scope.numPerPage;
 
-    $scope.filteredPeople = app.people.slice(begin, end);
-    });
+    // $scope.filteredPeople = app.people.slice(begin, end);
+    // });
     
 })

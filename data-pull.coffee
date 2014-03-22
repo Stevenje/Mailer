@@ -8,6 +8,7 @@ server = new Server("localhost", 27017,
 )
 
 db = new Db("githubdb", server)
+
 db.open (err, db) ->
   unless err
     console.log "Connected to 'githubdb' database"
@@ -71,4 +72,4 @@ getData = (lang, location, page) ->
 
 
 
-getData("python", "London", 1)
+getData("Go", "London", 2)
