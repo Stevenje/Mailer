@@ -15,6 +15,32 @@ app.controller("AppCtrl", function($scope, $http) {
             })
     }
 
+   app.repoDistribution = function(repos) {
+      var dist, repo, _i, _len;
+      dist = {};
+      for (_i = 0, _len = repos.length; _i < _len; _i++) {
+        repo = repos[_i];
+        if (dist[repo.language] === undefined) {
+          dist[repo.language] = 1;
+        } else {
+          dist[repo.language] += 1;
+        }
+      }
+      // console.log(dist);
+      return dist;
+    };
+
+    app.total = function(dist) {
+        var total = 0;
+
+        for (var lang in dist) {
+            total += lang;
+        }
+        console.log(total)
+    }
+
+    $scope.isCollapsed = true;
+
     // Pagination
     $scope.filteredTodos = []
     ,$scope.currentPage = 1
