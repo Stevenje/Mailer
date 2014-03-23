@@ -1,7 +1,7 @@
 express = require("express")
 http = require("http")
 cors = require("cors")
-profiles = require("./routes/profiles") # Hook up to Mongo 
+profiles = require("./routes/profiles") # Hook up to Mongo
 
 app = express()
 

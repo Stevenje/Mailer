@@ -1,18 +1,22 @@
 mongo = require("mongodb")
 nodemailer = require("nodemailer")
+mongoose = require("mongoose")
 
+#Mongoose Settings
+mongoose.connect "mongodb://localhost/test"
+
+mdb = mongoose.connection
+mdb.on "error", console.error.bind(console, "connection error:")
+mdb.once "open", callback = ->
+  console.log "Mongoose: connected"
+
+#Mongodb Settings
 Server = mongo.Server
 Db = mongo.Db
 BSON = mongo.BSONPure
 server = new Server("localhost", 27017,
   auto_reconnect: true
 )
-
-smtpTransport = nodemailer.createTransport "SMTP",
-  service: "Gmail"
-  auth:
-    user: "snevets@gmail.com"
-    pass: "XXXXX"
 
 db = new Db("githubdb", server)
 db.open (err, db) ->
@@ -22,10 +26,16 @@ db.open (err, db) ->
       strict: true
     , (err, collection) ->
       if err
-        console.log "The 'profiles' collection doesn't exist. Hungry for DATA! nom nom..."
+        console.log "The 'profiles' collection doesn't exist. Hungry for DATA!"
 
+#Nodemailer Settings
+smtpTransport = nodemailer.createTransport "SMTP",
+  service: "Gmail"
+  auth:
+    user: "snevets@gmail.com"
+    pass: "XXXXX"
 
-
+#REST API's
 exports.findById = (req, res) ->
   id = req.params.id
   console.log "Retrieving profile: " + id
@@ -108,14 +118,3 @@ exports.sendEmail = (req, res) ->
       res.send "Email sent to: #{profile.name}, id:#{profile._id}"
       smtpTransport.close()
 
-
-
-#  db.collection "profiles", (err, collection) ->
-#    collection.insert profile,
-#      safe: true
-#    , (err, result) ->
-#      if err
-#        res.send error: "An error has occurred"
-#      else
-#        console.log "Success: " + JSON.stringify(result[0])
-#        res.send result[0]
