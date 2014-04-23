@@ -1,0 +1,54 @@
+    <br>
+    <br>
+    <br>
+
+    <ul class="list-unstyled" ng-controller="AppCtrl">
+      <div class="container">
+        <div data-pagination="" data-num-pages="numPages()" data-current-page="currentPage" data-max-size="maxSize" data-boundary-links="true"></div>
+        <li class="profile" ng-repeat="person in people">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-2">
+                  <a href="{{person.html_url}}" target="_blank">
+                    <img src="{{person.avatar_url}}&s=300" width="150" alt="{{person.login}}" class="img-circle" align="centre">
+                  </a>
+                </div>
+                <div class="col-md-8">
+                  <h4>{{person.name}} @ {{person.company}}</h4> 
+                  <h4>{{person.location}} Hireable: {{person.hireable}}</h4>
+                  <a href="mailto:{{person.email}}">
+                    <p>{{person.email}}</p>
+                  </a>
+                  <p>{{person.bio}}</p>
+                  <h5><span class="btn btn-primary btn-xs" id="tag" ng-repeat="(key, value) in person.repoOverview[0]" tooltip-placement="top" tooltip="{{value}} Repositories">{{key}}</span></h5>
+
+<!--                   <progress>
+                    <bar ng-repeat="(language, value) in $parent.app.repoDistribution(person.repos)" value="value" id="{{language}}">
+                      <span tooltip-placement="bottom" tooltip="{{language}}">{{language}}</span>
+                    </bar>
+                  </progress> -->
+
+<!--                   <div class="size-chart pure-g" ng-repeat="(language, value) in $parent.app.repoDistribution(person.repos)">
+                    <div style="width: {{ (value / $parent.person.repos.length)*100 }}%" class="size-chart-{{language}}" id="{{language}}" tooltip-placement="right" tooltip="{{language}}">
+                      <span>{{language}}</span>
+                      <p>{{value}}</p>
+                    </div>
+                  </div>
+                  <button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Full Repo List</button>
+                  <ul ng-repeat="repo in person.repos" collapse="isCollapsed">
+                    <li>
+                      <a href="{{repo.html_url}}">{{repo.name}} </a>{{repo.language}}
+                    </li>
+                  </ul> -->
+                </div>
+                <div class="col-md-2">
+                  <button type="button" class="btn btn-primary" ui-sref="profiles.detail">Full Profile</button>
+                  <button type="button" class="btn btn-primary" ng-click="sendEmail(person)">Email</button>
+                </div>
+              </div>
+            </div>
+        </li>
+
+      </div>
+    </ul>
+

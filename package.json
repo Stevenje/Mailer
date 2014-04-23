@@ -1,9 +1,14 @@
 {
-    "name": "git-mailer",
-    "description": "Auto mailer for GitHub Profiles",
-    "version": "0.0.1",
-    "private": true,
-    "dependencies": {
-        "express": "3.x"
-    }
+  "name": "git-mailer",
+  "description": "Auto mailer for GitHub Profiles",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "4.x",
+    "node-restful": "^0.1.16",
+    "morgan": "^1.0.0",
+    "mongoose-text-search": "0.0.2",
+    "email-existence": "^0.1.2",
+    "legit": "0.0.4"
+  }
 }

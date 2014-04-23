@@ -1,0 +1,71 @@
+    <br>
+    <br>
+    <br>
+
+  <div class="container" ng-controller="SearchCtrl">
+    <div class="container">
+    <div class="col-md-3">
+        <form ng-submit="search()">
+            <input type="text" ng-model="queryTerm" name="text" class="search-query form-control" placeholder="Search Profiles"/>
+    </div>
+        <input type="submit" id="submit" value="Search" class="btn btn-primary" />
+        </form>
+
+
+        <em class="pull-right">Found: {{results.stats.n}}, Responce: {{results.stats.timeMicros}}ms</em>
+    </div>
+      <br>
+
+      <div class="container" id="results">
+      <ul class="list-unstyled">
+        <li class="profile" ng-repeat="person in results.results">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-2">
+                  <a href="{{person.obj.html_url}}" target="_blank">
+                    <img src="{{person.obj.avatar_url}}&s=300" width="150" alt="{{person.obj.login}}" class="img-circle" align="centre">
+                  </a>
+                </div>
+                <div class="col-md-8">
+                  <h4 class="lead">{{person.obj.name}} @ {{person.obj.company}}</h4>
+                  <h5>{{person.obj.location}} Rank: {{person.score.toFixed(2)}}</h5>
+                  <a href="mailto:{{person.obj.email}}">
+                    <p>{{person.obj.email}}</p>
+                  </a>
+                  <p>{{person.obj.bio}}</p>
+                    <h5><span class="btn btn-primary btn-xs" id="tag" ng-repeat="(key, value) in person.obj.repoOverview[0]" tooltip-placement="top" tooltip="{{value}} Repositories">{{key}}</span></h5>
+
+<!--                   <progress>
+                    <bar ng-repeat="(language, value) in $parent.app.repoDistribution(person.repos)" value="value" id="{{language}}">
+                      <span tooltip-placement="bottom" tooltip="{{language}}">{{language}}</span>
+                    </bar>
+                  </progress> -->
+
+<!--                   <div class="size-chart pure-g" ng-repeat="(language, value) in $parent.app.repoDistribution(person.repos)">
+                    <div style="width: {{ (value / $parent.person.repos.length)*100 }}%" class="size-chart-{{language}}" id="{{language}}" tooltip-placement="right" tooltip="{{language}}">
+                      <span>{{language}}</span>
+                      <p>{{value}}</p>
+                    </div>
+                  </div>
+                  <button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Full Repo List</button>
+                  <ul ng-repeat="repo in person.repos" collapse="isCollapsed">
+                    <li>
+                      <a href="{{repo.html_url}}">{{repo.name}} </a>{{repo.language}}
+                    </li>
+                  </ul> -->
+                </div>
+                <div class="col-md-2">
+                  <button type="button" class="btn btn-primary" ui-sref="profiles.obj.detail">Full Profile</button>
+                  <button type="button" class="btn btn-primary" ng-click="sendEmail(person)">Email</button>
+                </div>
+              </div>
+            </div>
+        </li>
+
+
+    </ul>
+
+
+      </div>
+  </div>
+

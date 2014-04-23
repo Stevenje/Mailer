@@ -1,24 +1,26 @@
 express = require("express")
+bodyParser = require("body-parser")
 http = require("http")
 cors = require("cors")
-profiles = require("./routes/profiles") # Hook up to Mongo
+logger = require("morgan")
+
+profiles = require("./routes/profiles2") # Hook up to Mongo
 
 app = express()
 
-app.configure ->
-  app.use express.logger("dev") # 'default', 'short', 'tiny', 'dev'
-  app.use express.bodyParser() #read body of responces
-  app.use(cors()) #all cross-site requests
+app.use logger("dev") # 'default', 'short', 'tiny', 'dev'
+app.use bodyParser() #read body of responses
+app.use cors() #all cross-site requests
 
-
-
-# Rest API Implimentation
+# Rest API Implementation
 app.get "/profiles", profiles.findAll
-app.get "/profiles/:id", profiles.findById
-app.post "/profiles", profiles.addProfile
+#app.get "/profiles/:id", profiles.findById
+#app.post "/profiles", profiles.addProfile
 app.put "/profiles/:id", profiles.updateProfile
-app.delete "/wines/:id", profiles.deleteProfile
+#app.delete "/profiles/:id", profiles.deleteProfile
 app.post "/email", profiles.sendEmail
+app.post "/search", profiles.search
+app.post "/comp", profiles.comp
 
 # Listen on port 3000 ;)
 app.listen 3000

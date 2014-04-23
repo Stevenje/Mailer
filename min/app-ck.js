@@ -1,1 +1,0 @@
-var app=angular.module("app",[]);app.controller("AppCtrl",function(o){var p=this;o.get("http://localhost:3000/profiles").success(function(o){p.people=o}),app.sendEmail=function(p){o.post("http://localhost:3000/email",p).success(function(){console.log("success")})}});

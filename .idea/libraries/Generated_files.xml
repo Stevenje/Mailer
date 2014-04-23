@@ -1,0 +1,34 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/routes/profiles2.js" />
+        <item url="file://$PROJECT_DIR$/routes/profiles.js" />
+        <item url="file://$PROJECT_DIR$/emailer.js" />
+        <item url="file://$PROJECT_DIR$/data-pull.js" />
+        <item url="file://$PROJECT_DIR$/emailtest.js" />
+        <item url="file://$PROJECT_DIR$/server.js" />
+        <item url="file://$PROJECT_DIR$/app.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/mailer.js" />
+      <root url="file://$PROJECT_DIR$/mongo.js" />
+      <root url="file://$PROJECT_DIR$/mailer.js" />
+      <root url="file://$PROJECT_DIR$/mongo.js" />
+      <root url="file://$PROJECT_DIR$/test.js" />
+      <root url="file://$PROJECT_DIR$/routes/settings.js" />
+      <root url="file://$PROJECT_DIR$/messages.js" />
+      <root url="file://$PROJECT_DIR$/routes/settings.js" />
+      <root url="file://$PROJECT_DIR$/messages.js" />
+      <root url="file://$PROJECT_DIR$/routes/profiles2.js" />
+      <root url="file://$PROJECT_DIR$/routes/profiles.js" />
+      <root url="file://$PROJECT_DIR$/data-pull.js" />
+      <root url="file://$PROJECT_DIR$/emailer.js" />
+      <root url="file://$PROJECT_DIR$/emailtest.js" />
+      <root url="file://$PROJECT_DIR$/server.js" />
+      <root url="file://$PROJECT_DIR$/app.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
