@@ -1,18 +1,10 @@
-nodemailer = require("nodemailer")
 mongoose = require("mongoose")
 textSearch = require("mongoose-text-search")
 fs = require ("fs")
 request = require("request-json")
 
 
-#Nodemailer Settings
-smtpTransport = nodemailer.createTransport("SMTP",
-  host: "secure.emailsrvr.com" # hostname
-  secureConnection: true # use SSL
-  port: 465 # port for secure SMTP
-  auth:
-    user: "user@bridgenoble.com"
-    pass: "password"
+
 
 #Mongoose Settings
 mongoose.connect "mongodb://localhost/githubdb"
@@ -108,7 +100,7 @@ exports.sendEmail = (req, res) ->
       name: "Rick"
       surname: "Roll"
       subject: "FAO: #{profile.name} - Award Winning Financial Tech Startup - London"
-      template: "invite"
+      template: "test"
 
   data =
     name: "Rick"

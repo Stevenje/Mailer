@@ -32,13 +32,16 @@ class Emailer
 
   getTransport: ()->
     emailer.createTransport "SMTP",
-      service: "Gmail"
+      host: "secure.emailsrvr.com" # hostname
+      secureConnection: true # use SSL
+      port: 465 # port for secure SMTP
       auth:
-        user: "myappemail@gmail.com"
-        pass: "secretpass"
+        user: "user@bridgenoble.com"
+        pass: "password"
+
 
   getHtml: (templateName, data)->
-    templatePath = "./views/emails/#{templateName}.html"
+    templatePath = "./routes/email_templates/#{templateName}.html"
     templateContent = fs.readFileSync(templatePath, encoding="utf8")
     _.template templateContent, data, {interpolate: /\{\{(.+?)\}\}/g}
 

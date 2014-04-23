@@ -115,7 +115,7 @@ smtpTransport = nodemailer.createTransport("SMTP", {
       name: "Rick",
       surname: "Roll",
       subject: "FAO: " + profile.name + " - Award Winning Financial Tech Startup - London",
-      template: "invite"
+      template: "test"
     }
   };
   data = {
