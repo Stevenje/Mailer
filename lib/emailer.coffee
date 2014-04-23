@@ -22,7 +22,7 @@ class Emailer
     attachments = @getAttachments(html)
     messageData =
       to: "'#{@options.to.name} #{@options.to.surname}' <#{@options.to.email}>"
-      from: "'Myapp.com'"
+      from: "Steven"
       subject: @options.subject
       html: html
       generateTextFromHTML: true
@@ -36,12 +36,11 @@ class Emailer
       secureConnection: true # use SSL
       port: 465 # port for secure SMTP
       auth:
-        user: "user@bridgenoble.com"
-        pass: "password"
-
+        user: "steven.evans@bridgenoble.com"
+        pass: "sebnemail01"
 
   getHtml: (templateName, data)->
-    templatePath = "./routes/email_templates/#{templateName}.html"
+    templatePath = "./test.html"
     templateContent = fs.readFileSync(templatePath, encoding="utf8")
     _.template templateContent, data, {interpolate: /\{\{(.+?)\}\}/g}
 

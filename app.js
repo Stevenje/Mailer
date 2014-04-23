@@ -28,32 +28,6 @@ app.controller('AppCtrl', function($scope, $http) {
                 console.log(data);
             });
     };
-
-   $scope.repoDistribution = function(repos) {
-      var dist, repo, _i, _len;
-      dist = {};
-      for (_i = 0, _len = repos.length; _i < _len; _i++) {
-        repo = repos[_i];
-        if (dist[repo.language] === undefined) {
-          dist[repo.language] = 1;
-        } else {
-          dist[repo.language] += 1;
-        }
-      }
-      return dist;
-    };
-
-    $scope.total = function(dist) {
-        var total = 0;
-
-        for (var lang in dist) {
-            total += lang;
-        }
-        console.log(total);
-    };
-
-
-
 });
 
 app.controller('SearchCtrl',function($scope, $http){
@@ -63,6 +37,14 @@ app.controller('SearchCtrl',function($scope, $http){
             .success(function(data){
                 $scope.results = data;
             })
+    };
+
+    $scope.sendEmail = function(person){
+        console.log('in function, data: ' + person);
+        $http.post('http://localhost:3000/email', person)
+            .success(function(data){
+                console.log(data);
+            });
     };
 
 });

@@ -4,8 +4,6 @@ fs = require ("fs")
 request = require("request-json")
 
 
-
-
 #Mongoose Settings
 mongoose.connect "mongodb://localhost/githubdb"
 
@@ -109,6 +107,7 @@ exports.sendEmail = (req, res) ->
 
   Emailer = require "../lib/emailer"
   emailer = new Emailer options, data
+
   emailer.send (err, result)->
     if err
       console.log err
@@ -119,7 +118,7 @@ exports.sendEmail = (req, res) ->
         _id: profile._id
       ,
         $push:
-          messages: { author: 'Steven', body: mailOptions.Html }
+          messages: { author: 'Steven', body: data.template }
       ,
         upsert: true
-      , (err, data) ->)
+      , (err, data) ->
