@@ -80,7 +80,7 @@ app.controller('CompCtrl',function($scope, $http){
 // UI-ROUTER =======================================
 app.config(function($stateProvider, $urlRouterProvider) {
     'use strict';
-    $urlRouterProvider.otherwise('');
+    $urlRouterProvider.otherwise('/');
     
     $stateProvider
         
