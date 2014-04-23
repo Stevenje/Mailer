@@ -3,7 +3,6 @@ mongoose = require("mongoose")
 textSearch = require("mongoose-text-search")
 fs = require ("fs")
 request = require("request-json")
-emailer = require("../emailer")
 
 
 #Nodemailer Settings
@@ -103,31 +102,32 @@ exports.sendEmail = (req, res) ->
   profile = req.body
   console.log "Emailing: " + JSON.stringify(profile.name)
 
-  fs.readFile __dirname + '/../email_templates/test.html', (err, template) ->
+  options =
+    to:
+      email: "steven.evans@bridgenoble.com"
+      name: "Rick"
+      surname: "Roll"
+      subject: "FAO: #{profile.name} - Award Winning Financial Tech Startup - London"
+      template: "invite"
+
+  data =
+    name: "Rick"
+    surname: "Roll"
+    id: "3434_invite_id"
+
+  Emailer = require "../lib/emailer"
+  emailer = new Emailer options, data
+  emailer.send (err, result)->
     if err
       console.log err
     else
-      mailOptions =
-        from: "steven.evans@bridgenoble.com"
-        to: "snevets@gmail.com"
-        bcc: "steven.evans@bridgenoble.com"
-        subject: "FAO: #{profile.name} - Award Winning Financial Tech Startup - London"
-        Html: template
-
-      smtpTransport.sendMail mailOptions, (error, response) ->
-        if error
-          console.log error
-          smtpTransport.close()
-        else
-          smtpTransport.close()
-          console.log "Message sent: " + response.message
-          res.send "Email sent to: #{profile.name} id:#{profile._id}"
-
-          Profile.update
-            _id: profile._id
-          ,
-            $push:
-              messages: { author: 'Steven', body: mailOptions.Html }
-          ,
-            upsert: true
-          , (err, data) ->)
+      console.log "Message sent: " + result
+      res.send "Email sent to: #{profile.name} id:#{profile._id}"
+      Profile.update
+        _id: profile._id
+      ,
+        $push:
+          messages: { author: 'Steven', body: mailOptions.Html }
+      ,
+        upsert: true
+      , (err, data) ->)
