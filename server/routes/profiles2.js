@@ -119,7 +119,7 @@ exports.sendEmail = function(req, res) {
   console.log("Emailing: " + JSON.stringify(profile.name));
   options = {
     to: {
-      email: "steven.evans@bridgenoble.com",
+      email: "snevets@gmail.com",
       name: "Rick",
       surname: "Roll",
       subject: "FAO: " + profile.name + " - Award Winning Financial Tech Startup - London",
