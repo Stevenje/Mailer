@@ -37,7 +37,7 @@ class Emailer
       port: 465 # port for secure SMTP
       auth:
         user: "steven.evans@bridgenoble.com"
-        pass: "sebnemail01"
+        pass: ""
 
   getHtml: (templateName, data)->
     templatePath = "./test.html"

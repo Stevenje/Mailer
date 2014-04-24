@@ -34,8 +34,8 @@ smtpTransport = nodemailer.createTransport("SMTP",
   secureConnection: true # use SSL
   port: 465 # port for secure SMTP
   auth:
-    user: "
-    pass: "
+    user: ""
+    pass: ""
 )
 
 #REST API's
