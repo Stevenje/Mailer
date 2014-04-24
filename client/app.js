@@ -75,16 +75,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
         .state('profiles', {
             url: '/profiles',
-            templateUrl: 'templates/partial-profiles.html'
+            templateUrl: 'templates/partial-search.html'
         })
         .state('comp', {
             url: '/comp',
             templateUrl: 'templates/partial-comp.html'
         })
-        .state('search', {
-            url: '/search',
-            templateUrl: 'templates/partial-search.html'
-        });
+//        .state('search', {
+//            url: '/search',
+//            templateUrl: 'templates/partial-search.html'
+//        });
         // Full User Profile
 //        .state('detail', {
 //            url: '/profiles/:profile',
