@@ -131,7 +131,7 @@ exports.sendEmail = function(req, res) {
     surname: "Roll",
     id: "3434_invite_id"
   };
-  Emailer = require("../lib/emailer");
+  Emailer = require("../../lib/emailer");
   emailer = new Emailer(options, data);
   return emailer.send(function(err, result) {
     if (err) {

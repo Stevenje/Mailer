@@ -36,7 +36,7 @@ profileSchema = new mongoose.Schema
 
 Profile = mongoose.model('Profile', profileSchema)
 
-# Make request to Github
+# Make request to GitHub
 request = require("request-json")
 frequest = require("request")
 client = request.newClient 'https://api.github.com/'
@@ -150,5 +150,5 @@ getData = (lang, location, page) ->
 
 
 
-getData("Objective-C", "London", 2)
+getData("Go", "London", 2)
 #fullGrab("Objective-C", "London")

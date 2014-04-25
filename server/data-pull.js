@@ -204,4 +204,4 @@ getData = function(lang, location, page) {
   });
 };
 
-getData("Objective-C", "London", 2);
+getData("Go", "London", 2);

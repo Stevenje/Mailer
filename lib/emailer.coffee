@@ -31,7 +31,7 @@ class Emailer
         pass: ""
 
   getHtml: (templateName, data)->
-    templatePath = "./test.html"
+    templatePath = "../test.html"
     templateContent = fs.readFileSync(templatePath, encoding="utf8")
     _.template templateContent, data, {interpolate: /\{\{(.+?)\}\}/g}
 

@@ -105,7 +105,7 @@ exports.sendEmail = (req, res) ->
     surname: "Roll"
     id: "3434_invite_id"
 
-  Emailer = require "../lib/emailer"
+  Emailer = require "../../lib/emailer"
   emailer = new Emailer options, data
 
   emailer.send (err, result)->

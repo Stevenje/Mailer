@@ -47,6 +47,8 @@ app.controller('SearchCtrl',function($scope, $http){
             });
     };
 
+
+
 });
 
 app.controller('CompCtrl',function($scope, $http){
@@ -63,15 +65,14 @@ app.controller('CompCtrl',function($scope, $http){
 app.config(function($stateProvider, $urlRouterProvider) {
     'use strict';
     $urlRouterProvider.otherwise('/');
-    
+
     $stateProvider
-        
         // HOME STATES AND NESTED VIEWS ========================================
         .state('index', {
             url: '/',
             templateUrl: 'templates/partial-home.html'
         })
-        
+
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
         .state('profiles', {
             url: '/profiles',
