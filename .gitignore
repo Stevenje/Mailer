@@ -29,3 +29,6 @@ data
 
 # Webstorm Workspace settings 
 .idea
+
+# Bower dependancies
+app
