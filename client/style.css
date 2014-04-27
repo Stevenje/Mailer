@@ -1,45 +1,45 @@
 .row {
-  padding-top: 20px;
+    padding-top: 20px;
 }
 
 #JavaScript {
-	background-color: #0e90d2;
+    background-color: #0e90d2;
 }
 
 #Ruby {
-	background-color: #dd514c;
+    background-color: #dd514c;
 }
 
 #CoffeeScript {
-	background-color: rgb(243, 123, 29);
+    background-color: rgb(243, 123, 29);
 }
 
 #PHP {
-	background-color: rgb(250, 210, 50);
+    background-color: rgb(250, 210, 50);
 }
 
 #Python {
-	background-color: #5eb95e;
+    background-color: #5eb95e;
 }
 
 #Go {
-	background-color: rgb(39, 174, 96);
+    background-color: rgb(39, 174, 96);
 }
 
 #Haskell {
-	background-color: rgb(192, 57, 43);
+    background-color: rgb(192, 57, 43);
 }
 
 #Java {
-	background-color: rgb(128, 88, 165);
+    background-color: rgb(128, 88, 165);
 }
 
 #Shell {
-	background-color: rgb(52, 73, 94);
+    background-color: rgb(52, 73, 94);
 }
 
 #Perl {
-	background-color: rgb(155, 89, 182);
+    background-color: rgb(155, 89, 182);
 }
 
 #tag {

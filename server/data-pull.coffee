@@ -1,40 +1,9 @@
 mongoose = require("mongoose")
-
+Profile = require("./models/profile")
 #Mongoose Settings
 mongoose.connect "mongodb://localhost/githubdb"
 
 db = mongoose.connection
-
-profileSchema = new mongoose.Schema
-  avatar_url : String
-  html_url : String
-  repos_url : String
-  name : String
-  company : String
-  blog: String
-  location: String
-  hireable: Boolean
-  bio: String
-  email: { type: String, required: true, index: true }
-  addedToDB: { type: Date, default: Date.now }
-  repos : [
-    name: String
-    html_url: String
-    lang: String
-  ]
-  repoOverview: {}
-  messages: [
-    author: String
-    body: String
-    date: { type: Date, default: Date.now }
-  ]
-  comments: [
-    author: String
-    body: String
-    date: { type: Date, default: Date.now }
-  ]
-
-Profile = mongoose.model('Profile', profileSchema)
 
 # Make request to GitHub
 request = require("request-json")
@@ -150,5 +119,5 @@ getData = (lang, location, page) ->
 
 
 
-getData("Go", "London", 2)
+getData("R", "London", 1)
 #fullGrab("Objective-C", "London")

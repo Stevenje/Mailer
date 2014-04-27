@@ -1,39 +1,36 @@
-    <br>
-    <br>
-    <br>
+<br>
+<br>
+<br>
 
-  <div class="container" ng-controller="CompCtrl">
-    <div class="container">
+<div class="container" ng-controller="CompCtrl">
+  <div class="container">
     <div class="col-md-3">
       <input class="search-query form-control" ng-model="queryTerm" type="text" placeholder="Search Companies">
-
     </div>
-        <button ng-click="search()" class="btn btn-primary" type="button">Search</button>
-    </div>
-      <br>
-
-      <div class="container" id="results">
-      <ul class="list-unstyled">
-        <li class="profile" ng-repeat="company in results">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-2">
-                  <a href="{{company.homepage_url}}" target="_blank">
-                    <img src="http://crunchbase.com/{{company.image.available_sizes[2][1]}}" width="150" alt="{{person.obj.login}}" align="centre">
-                  </a>
-                </div>
-                <div class="col-md-8">
-                  <h4><a href="{{company.homepage_url}}">{{company.name}}</a></h4>
-                  <p>{{company.overview.substring(0, 450)}}...</p>
-                </div>
-              </div>
-            </div>
-        </li>
-
-
-    </ul>
-
-
-      </div>
+    <button ng-click="search()" class="btn btn-primary" type="button">Search</button>
   </div>
+  <br>
+
+  <div class="container" id="results">
+    <ul class="list-unstyled">
+      <li class="profile" ng-repeat="company in results">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2">
+              <a href="{{company.homepage_url}}" target="_blank">
+                <img src="http://crunchbase.com/{{company.image.available_sizes[2][1]}}" width="150"
+                     alt="{{person.obj.login}}" align="centre">
+              </a>
+            </div>
+            <div class="col-md-8">
+              <h4><a href="{{company.homepage_url}}">{{company.name}}</a></h4>
+
+              <p>{{company.overview.substring(0, 450)}}...</p>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
 

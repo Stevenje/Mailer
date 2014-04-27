@@ -1,9 +1,9 @@
 var app = angular.module('app', ['ui.bootstrap', 'ui.router']);
 
-app.controller('AppCtrl', function($scope, $http) {
+app.controller('AppCtrl', function ($scope, $http) {
     'use strict';
     $http.get('http://localhost:3000/profiles')
-        .success(function(data) {
+        .success(function (data) {
             $scope.people = data;
             $scope.filteredPeople = [];
             $scope.currentPage = 1;
@@ -11,58 +11,57 @@ app.controller('AppCtrl', function($scope, $http) {
             $scope.maxSize = 5;
 
             $scope.numPages = function () {
-                 return Math.ceil($scope.people.length / $scope.numPerPage);
+                return Math.ceil($scope.people.length / $scope.numPerPage);
             };
 
-            $scope.$watch('currentPage + numPerPage', function() {
-                 var begin = (($scope.currentPage - 1) * $scope.numPerPage), end = begin + $scope.numPerPage;
+            $scope.$watch('currentPage + numPerPage', function () {
+                var begin = (($scope.currentPage - 1) * $scope.numPerPage), end = begin + $scope.numPerPage;
 
-            $scope.filteredPeople = $scope.people.slice(begin, end);
+                $scope.filteredPeople = $scope.people.slice(begin, end);
             });
         });
 
-    $scope.sendEmail = function(person){
+    $scope.sendEmail = function (person) {
         console.log('in function, data: ' + person);
         $http.post('http://localhost:3000/email', person)
-            .success(function(data){
+            .success(function (data) {
                 console.log(data);
             });
     };
 });
 
-app.controller('SearchCtrl',function($scope, $http){
+app.controller('SearchCtrl', function ($scope, $http) {
 
-    $scope.search=function(){
-        $http.post('http://localhost:3000/search',{'query': $scope.queryTerm })
-            .success(function(data){
+    $scope.search = function () {
+        $http.post('http://localhost:3000/search', {'query': $scope.queryTerm })
+            .success(function (data) {
                 $scope.results = data;
             })
     };
 
-    $scope.sendEmail = function(person){
+    $scope.sendEmail = function (person) {
         console.log('in function, data: ' + person);
         $http.post('http://localhost:3000/email', person)
-            .success(function(data){
+            .success(function (data) {
                 console.log(data);
             });
     };
 
 
-
 });
 
-app.controller('CompCtrl',function($scope, $http){
+app.controller('CompCtrl', function ($scope, $http) {
 
-    $scope.search=function(){
-        $http.post('http://localhost:3000/comp',{'query': $scope.queryTerm })
-            .success(function(data){
+    $scope.search = function () {
+        $http.post('http://localhost:3000/comp', {'query': $scope.queryTerm })
+            .success(function (data) {
                 $scope.results = data;
             })
     };
 
 });
 // UI-ROUTER =======================================
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider) {
     'use strict';
     $urlRouterProvider.otherwise('/');
 
@@ -82,16 +81,4 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/comp',
             templateUrl: 'templates/partial-comp.html'
         })
-//        .state('search', {
-//            url: '/search',
-//            templateUrl: 'templates/partial-search.html'
-//        });
-        // Full User Profile
-//        .state('detail', {
-//            url: '/profiles/:profile',
-//            templateUrl: 'templates/partial-profile.html',
-//            controller: function ($scope, $stateParams) {
-//                $scope.person = $stateParams.person;
-//            }
-//        });
 });
