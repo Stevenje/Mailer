@@ -18,7 +18,7 @@ app.get "/profiles", profiles.findAll
 #app.get "/profiles/:id", profiles.findById
 #app.post "/profiles", profiles.addProfile
 app.put "/profiles/:id", profiles.updateProfile
-#app.delete "/profiles/:id", profiles.deleteProfile
+app.delete "/profiles/:id", profiles.deleteProfile
 app.post "/email", email.sendEmail
 app.post "/search", profiles.search
 app.post "/comp", profiles.comp

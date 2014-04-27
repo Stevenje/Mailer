@@ -47,6 +47,14 @@ app.controller('SearchCtrl', function ($scope, $http) {
             });
     };
 
+    $scope.deleteProfile = function (person) {
+        console.log('in function, data: ' + person);
+        $http.delete('http://localhost:3000/profiles/' + person._id)
+            .success(function (data) {
+                console.log(data);
+            });
+    };
+
 
 });
 

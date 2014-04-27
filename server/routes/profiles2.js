@@ -70,3 +70,16 @@ exports.updateProfile = function(req, res) {
     });
   });
 };
+
+exports.deleteProfile = function(req, res) {
+  var id;
+  id = req.params.id;
+  return Profile.findByIdAndRemove(id, function(err, data) {
+    if (err) {
+      return console.log(err);
+    } else {
+      res.send(data);
+      return console.log(data);
+    }
+  });
+};

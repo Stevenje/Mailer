@@ -48,13 +48,12 @@ exports.updateProfile = (req, res) ->
         console.log err
       res.send profile
 
-#exports.deleteProfile = (req, res) ->
-#  id = req.body
-#
-#  Profile.findById id, (err, profile) ->
-#    profile.author = "steven"
-#    profile.save (err) ->
-#      if err
-#        console.log err
-#      res.send profile
+exports.deleteProfile = (req, res) ->
+  id = req.params.id
+  Profile.findByIdAndRemove id, (err, data)->
+    if err
+      console.log err
+    else
+      res.send data
+      console.log data
 
