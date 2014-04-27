@@ -3,21 +3,27 @@
 <br>
 
 <div class="container" ng-controller="TempCtrl">
-  <div class="col-md-6">
-    <h2>Add a new template:</h2>
+  <div class="col-md-4">
+    <h2>Add a new template</h2>
   </div>
   <br>
 
-  <div class="col-md-3">
-    <input type="text" placeholder="Client name" class="form-control">
-  </div>
-  <div class="col-md-3">
-    <input type="text" placeholder="Role name" class="form-control">
-  </div>
   <form>
+    <div class="col-md-2">
+      <input type="text" placeholder="Client name" class="form-control">
+    </div>
+    <div class="col-md-2">
+      <input type="text" placeholder="Role name" class="form-control">
+    </div>
+    <div class="col-md-4">
+      <input type="text" placeholder="Email Subject" class="form-control">
+    </div>
+
+    <br>
+    <br>
     <textarea class="form-control" rows="18" placeholder="Add your template here..."></textarea>
     <br>
-    <button class="btn btn-primary pull-right">Submit</button>
+    <button class="btn btn-primary pull-right" ng-click="">Submit</button>
   </form>
 
 </div>

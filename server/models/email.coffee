@@ -3,8 +3,9 @@ mongoose = require("mongoose")
 emailSchema = new mongoose.Schema
   client: String
   role: String
+  title: String
   html: String
 
-Profile = mongoose.model('Email', profileSchema)
+Email = mongoose.model('Email', emailSchema)
 
 exports = module.exports = Email

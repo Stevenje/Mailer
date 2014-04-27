@@ -22,6 +22,8 @@ app.delete "/profiles/:id", profiles.deleteProfile
 app.post "/email", email.sendEmail
 app.post "/search", profiles.search
 app.post "/comp", profiles.comp
+app.get "/templates", email.findAll
+app.post "/templates", email.addTemplate
 
 
 # Listen on port 3000 ;)

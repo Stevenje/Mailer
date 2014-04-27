@@ -1,5 +1,16 @@
 mongoose = require("mongoose")
 Profile = require("../models/profile")
+Email = require("../models/email")
+
+exports.findAll = (req, res) ->
+  Email.find (err, templates) ->
+    if err
+      console.log err
+    else
+      res.send(templates)
+
+exports.addTemplate = (req,res) ->
+
 
 exports.sendEmail = (req, res) ->
   profile = req.body

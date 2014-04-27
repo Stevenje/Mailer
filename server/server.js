@@ -37,6 +37,10 @@ app.post("/search", profiles.search);
 
 app.post("/comp", profiles.comp);
 
+app.get("/templates", email.findAll);
+
+app.post("/templates", email.addTemplate);
+
 app.listen(3000);
 
 console.log("Listening on port 3000 ;)");

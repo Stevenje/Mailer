@@ -36,6 +36,11 @@
               <a href="mailto:{{person.obj.email}}">
                 <p>{{person.obj.email}}</p>
               </a>
+              <p>Sent {{person.obj.messages.length}} Emails</p>
+              <ul ng-repeat="email in person.obj.messages">
+                <li>{{email.body}}, {{email.date | date : 'd MMM y, h:mm a'}}</li>
+              </ul>
+
 
               <p>{{person.obj.bio}}</p>
               <h5><span class="btn btn-primary btn-xs" id="tag"

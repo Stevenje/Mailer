@@ -44,7 +44,6 @@ exports.comp = (req, res) ->
     else
       res.send body.results
 
-
 exports.updateProfile = (req, res) ->
   id = req.params.id
   update = req.body
