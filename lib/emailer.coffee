@@ -13,8 +13,8 @@ class Emailer
   send: (callback)->
     html = @getHtml(@options.template, @data)
     messageData =
-      to: "'#{@options.to.name} #{@options.to.surname}' <#{@options.to.email}>"
-      from: "Steven"
+      to: @options.to.email
+      from: "Steven Evans <steven.evans@bridgenoble.com>>"
       subject: @options.subject
       html: html
       generateTextFromHTML: true
@@ -28,7 +28,7 @@ class Emailer
       port: 465 # port for secure SMTP
       auth:
         user: "steven.evans@bridgenoble.com"
-        pass: ""
+        pass: "sebnemail01"
 
   getHtml: (templateName, data)->
     templatePath = "../test.html"

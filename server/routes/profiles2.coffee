@@ -55,37 +55,3 @@ exports.updateProfile = (req, res) ->
 #        console.log err
 #      res.send profile
 
-exports.sendEmail = (req, res) ->
-  profile = req.body
-  console.log "Emailing: " + JSON.stringify(profile.name)
-
-  options =
-    to:
-      email: "snevets@gmail.com"
-      name: "Rick"
-      surname: "Roll"
-      subject: "FAO: #{profile.name} - Award Winning Financial Tech Startup - London"
-      template: "test"
-
-  data =
-    name: "Rick"
-    surname: "Roll"
-    id: "3434_invite_id"
-
-  Emailer = require "../../lib/emailer"
-  emailer = new Emailer options, data
-
-  emailer.send (err, result)->
-    if err
-      console.log err
-    else
-      console.log "Message sent: " + result
-      res.send "Email sent to: #{profile.name} id:#{profile._id}"
-      Profile.update
-        _id: profile._id
-      ,
-        $push:
-          messages: { author: 'Steven', body: data.template }
-      ,
-        upsert: true
-      , (err, data) ->

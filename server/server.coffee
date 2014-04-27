@@ -4,7 +4,8 @@ http = require("http")
 cors = require("cors")
 logger = require("morgan")
 
-profiles = require("./routes/profiles2") # Hook up to Mongo
+profiles = require("./routes/profiles2")
+email = require("./routes/email")
 
 app = express()
 
@@ -18,7 +19,7 @@ app.get "/profiles", profiles.findAll
 #app.post "/profiles", profiles.addProfile
 app.put "/profiles/:id", profiles.updateProfile
 #app.delete "/profiles/:id", profiles.deleteProfile
-app.post "/email", profiles.sendEmail
+app.post "/email", email.sendEmail
 app.post "/search", profiles.search
 app.post "/comp", profiles.comp
 
