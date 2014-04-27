@@ -14,8 +14,8 @@ class Emailer
     html = @getHtml(@options.template, @data)
     messageData =
       to: @options.to.email
-      from: "Steven Evans <steven.evans@bridgenoble.com>>"
-      subject: @options.subject
+      from: "Steven Evans <steven.evans@bridgenoble.com>"
+      subject: @options.to.subject
       html: html
       generateTextFromHTML: true
     transport = @getTransport()
@@ -28,10 +28,10 @@ class Emailer
       port: 465 # port for secure SMTP
       auth:
         user: "steven.evans@bridgenoble.com"
-        pass: "sebnemail01"
+        pass: ""
 
   getHtml: (templateName, data)->
-    templatePath = "../test.html"
+    templatePath = "../server/templates/test.html"
     templateContent = fs.readFileSync(templatePath, encoding="utf8")
     _.template templateContent, data, {interpolate: /\{\{(.+?)\}\}/g}
 

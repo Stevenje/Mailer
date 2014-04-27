@@ -81,4 +81,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: '/comp',
             templateUrl: 'templates/partial-comp.html'
         })
+        .state('template', {
+            url: '/template',
+            templateUrl: 'templates/partial-template.html'
+        })
 });

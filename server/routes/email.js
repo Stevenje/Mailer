@@ -12,16 +12,14 @@ exports.sendEmail = function(req, res) {
   options = {
     to: {
       email: "snevets@gmail.com",
-      name: "Rick",
-      surname: "Roll",
+      name: profile.name,
       subject: "FAO:  - Award Winning Financial Tech Startup - London",
       template: "test"
     }
   };
   data = {
-    name: "Rick",
-    surname: "Roll",
-    id: "3434_invite_id"
+    name: profile.name.split(" ")[0],
+    url: profile.html_url
   };
   Emailer = require("../../lib/emailer");
   emailer = new Emailer(options, data);

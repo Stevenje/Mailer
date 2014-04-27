@@ -5,7 +5,10 @@ request = require("request-json")
 
 #Mongoose Settings
 mongoose.connect "mongodb://localhost/githubdb"
-db = mongoose.connection
+md = mongoose.connection
+md.on "error", console.error.bind(console, "connection error:")
+md.once "open", callback = ->
+  console.log "Mongoose - connected"
 
 exports.findAll = (req, res) ->
   Profile.find (err, profiles) ->
