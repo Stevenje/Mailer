@@ -25,6 +25,8 @@ app.use(cors());
 
 app.get("/profiles", profiles.findAll);
 
+app.get("/profiles/:id", profiles.findById);
+
 app.put("/profiles/:id", profiles.updateProfile);
 
 app["delete"]("/profiles/:id", profiles.deleteProfile);

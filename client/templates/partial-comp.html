@@ -4,33 +4,34 @@
 
 <div class="container" ng-controller="CompCtrl">
   <div class="container">
-    <div class="col-md-3">
-      <input class="search-query form-control" ng-model="queryTerm" type="text" placeholder="Search Companies">
-    </div>
-    <button ng-click="search()" class="btn btn-primary" type="button">Search</button>
-  </div>
-  <br>
+    <form ng-submit="search()">
+      <div class="col-md-3">
+        <input type="text" ng-model="queryTerm" name="text" class="search-query form-control"
+               placeholder="Search Profiles"/>
+      </div>
+      <input type="submit" id="submit" value="Search" class="btn btn-primary"/>
+    </form>
 
-  <div class="container" id="results">
-    <ul class="list-unstyled">
-      <li class="profile" ng-repeat="company in results">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-2">
-              <a href="{{company.homepage_url}}" target="_blank">
-                <img src="http://crunchbase.com/{{company.image.available_sizes[2][1]}}" width="150"
-                     alt="{{person.obj.login}}" align="centre">
-              </a>
-            </div>
-            <div class="col-md-8">
-              <h4><a href="{{company.homepage_url}}">{{company.name}}</a></h4>
+    <div class="container" id="results">
+      <ul class="list-unstyled">
+        <li class="profile" ng-repeat="company in results">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-2">
+                <a href="{{company.homepage_url}}" target="_blank">
+                  <img src="http://crunchbase.com/{{company.image.available_sizes[2][1]}}" width="150"
+                       alt="{{person.obj.login}}" align="centre">
+                </a>
+              </div>
+              <div class="col-md-8">
+                <h4><a href="{{company.homepage_url}}">{{company.name}}</a></h4>
 
-              <p>{{company.overview.substring(0, 450)}}...</p>
+                <p>{{company.overview.substring(0, 450)}}...</p>
+              </div>
             </div>
           </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
 

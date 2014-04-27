@@ -29,10 +29,26 @@ exports.findAll = function(req, res) {
   });
 };
 
+exports.findById = function(req, res) {
+  var id;
+  id = req.params.id;
+  return Profile.findById(id, function(err, data) {
+    if (err) {
+      return console.log(err);
+    } else {
+      res.send(data);
+      return console.log(data);
+    }
+  });
+};
+
 exports.search = function(req, res) {
-  var searchTerm;
+  var options, searchTerm;
   searchTerm = req.body.query;
-  return Profile.textSearch(searchTerm, function(err, profiles) {
+  options = {
+    limit: 30
+  };
+  return Profile.textSearch(searchTerm, options, function(err, profiles) {
     if (err) {
       return console.log(err);
     } else {

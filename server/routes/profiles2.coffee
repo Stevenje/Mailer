@@ -17,9 +17,19 @@ exports.findAll = (req, res) ->
     else
       res.send(profiles)
 
+exports.findById = (req, res) ->
+  id = req.params.id
+  Profile.findById id, (err, data)->
+    if err
+      console.log err
+    else
+      res.send data
+      console.log data
+
 exports.search = (req, res) ->
   searchTerm = req.body.query
-  Profile.textSearch searchTerm, (err, profiles) ->
+  options = {limit: 30}
+  Profile.textSearch searchTerm, options, (err, profiles) ->
     if err
       console.log err
     else

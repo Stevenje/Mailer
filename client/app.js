@@ -68,6 +68,17 @@ app.controller('CompCtrl', function ($scope, $http) {
     };
 
 });
+
+app.controller('TempCtrl', function ($scope, $http) {
+
+    $scope.add = function () {
+        $http.post('http://localhost:3000/templates', {'client': $scope.client, 'role': $scope.role,  'email': $scope.html })
+            .success(function (data) {
+                console.log(data);
+            })
+    };
+
+});
 // UI-ROUTER =======================================
 app.config(function ($stateProvider, $urlRouterProvider) {
     'use strict';
@@ -79,8 +90,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: '/',
             templateUrl: 'templates/partial-home.html'
         })
-
-        // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
         .state('profiles', {
             url: '/profiles',
             templateUrl: 'templates/partial-search.html'
