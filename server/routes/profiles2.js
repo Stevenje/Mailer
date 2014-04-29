@@ -37,7 +37,7 @@ exports.findById = function(req, res) {
       return console.log(err);
     } else {
       res.send(data);
-      return console.log(data);
+      return console.log("Find By Id: " + data._id);
     }
   });
 };

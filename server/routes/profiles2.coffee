@@ -24,7 +24,7 @@ exports.findById = (req, res) ->
       console.log err
     else
       res.send data
-      console.log data
+      console.log "Find By Id: #{data._id}"
 
 exports.search = (req, res) ->
   searchTerm = req.body.query

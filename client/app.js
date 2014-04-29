@@ -71,8 +71,12 @@ app.controller('CompCtrl', function ($scope, $http) {
 
 app.controller('TempCtrl', function ($scope, $http) {
 
-    $scope.add = function () {
-        $http.post('http://localhost:3000/templates', {'client': $scope.client, 'role': $scope.role,  'email': $scope.html })
+    $scope.addTemplate = function () {
+        $http.post('http://localhost:3000/templates', {
+            'client': $scope.client,
+            'role': $scope.role,
+            'subject': $scope.subject,
+            'html': $scope.html })
             .success(function (data) {
                 console.log(data);
             })

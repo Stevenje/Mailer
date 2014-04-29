@@ -5,10 +5,10 @@ mongoose = require("mongoose");
 
 Profile = require("../models/profile");
 
-Template = require("../models/template");
+Template = require("../models/email");
 
 exports.findAll = function(req, res) {
-  return Template.find(function(err, templates) {
+  return Email.find(function(err, templates) {
     if (err) {
       return console.log(err);
     } else {
@@ -18,15 +18,7 @@ exports.findAll = function(req, res) {
 };
 
 exports.addTemplate = function(req, res) {
-  var template;
-  template = new Template(req.body);
-  return template.save(function(err) {
-    if (err) {
-      return console.log(err);
-    } else {
-      return res.send("Added template to DB");
-    }
-  });
+  return req.body = template;
 };
 
 exports.sendEmail = function(req, res) {

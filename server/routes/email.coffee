@@ -1,15 +1,23 @@
 mongoose = require("mongoose")
 Profile = require("../models/profile")
-Email = require("../models/email")
+Template = require("../models/template")
 
 exports.findAll = (req, res) ->
-  Email.find (err, templates) ->
+  Template.find (err, templates) ->
     if err
       console.log err
     else
       res.send(templates)
 
 exports.addTemplate = (req,res) ->
+  template = new Template req.body
+  template.save((err)->
+    if err
+      console.log err
+    else
+      res.send "Added template to DB"
+  )
+
 
 
 exports.sendEmail = (req, res) ->
