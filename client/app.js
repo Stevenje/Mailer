@@ -32,6 +32,15 @@ app.controller('AppCtrl', function ($scope, $http) {
 
 app.controller('SearchCtrl', function ($scope, $http) {
 
+    $http.get('http://localhost:3000/templates')
+        .success(function(data){
+            console.log(data)
+            $scope.templates = data;
+            $scope.selectedOption = $scope.templates[0];
+        });
+
+
+
     $scope.search = function () {
         $http.post('http://localhost:3000/search', {'query': $scope.queryTerm })
             .success(function (data) {

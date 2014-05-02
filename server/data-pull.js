@@ -51,10 +51,10 @@ addRepositories = function(profile, callback) {
     },
     json: true
   };
-  return frequest(options, function(error, responce, body) {
+  return frequest(options, function(err, responce, body) {
     var repo, _i, _len;
-    if (error) {
-      return console.log(error);
+    if (err) {
+      return console.log(err);
     } else {
       for (_i = 0, _len = body.length; _i < _len; _i++) {
         repo = body[_i];
@@ -70,7 +70,13 @@ addRepositories = function(profile, callback) {
           }
         }, {
           upsert: true
-        }, function(err, data) {});
+        }, function(err, data) {
+          if (err) {
+            return log(err);
+          } else {
+            return console.log(data);
+          }
+        });
       }
       return callback(profile);
     }
@@ -107,7 +113,11 @@ addRepoOverview = function(profile, dist) {
     }
   }, {
     upsert: true
-  }, function(err, data) {});
+  }, function(err, data) {
+    if (err) {
+      return console.log(err);
+    }
+  });
   return console.log("Finished with " + profile.name);
 };
 
@@ -137,6 +147,7 @@ addToDB = function(item, callback) {
 getData = function(lang, location, page) {
   return client.get('search/users?q=location:' + location + '+language:' + lang + '&page=' + page, function(err, res, body) {
     var profile, profilearray, _i, _len, _results;
+    console.log('Total Users found: ' + body.total_count);
     profilearray = body.items;
     _results = [];
     for (_i = 0, _len = profilearray.length; _i < _len; _i++) {
@@ -155,4 +166,4 @@ getData = function(lang, location, page) {
   });
 };
 
-getData("R", "London", 1);
+getData("R", "London", 2);

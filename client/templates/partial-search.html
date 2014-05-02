@@ -5,15 +5,21 @@
 <div class="container" ng-controller="SearchCtrl">
   <div class="container">
 
-      <form ng-submit="search()">
-        <div class="col-md-3">
-        <input type="text" ng-model="queryTerm" name="text" class="search-query form-control"
-               placeholder="Search Profiles"/>
+    <form ng-submit="search()">
+      <div class="col-md-3">
+        <div class="input-group">
+          <input type="text" ng-model="queryTerm" name="text" class="search-query form-control"
+                 placeholder="Search Profiles">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+      </span>
         </div>
-        <input type="submit" id="submit" value="Search" class="btn btn-primary"/>
-        <em class="pull-right">Found: {{results.stats.n}}, Responce: {{results.stats.timeMicros}}ms</em>
-      </form>
-
+      </div>
+      <div class="col-md-3">
+      <select data-ng-options="template.role for template in templates" data-ng-model="selectedOption" class="form-control"></select>
+     </div>
+      <em class="pull-right">Found: {{results.stats.n}}, Responce: {{results.stats.timeMicros}}ms</em>
+    </form>
 
 
   </div>
@@ -21,7 +27,7 @@
 
   <div class="container" id="results">
     <ul class="list-unstyled">
-      <li class="profile" ng-repeat="person in results.results">
+      <li class="profile animated fadeIn" ng-repeat="person in results.results" >
         <div class="container">
           <div class="row">
             <div class="col-md-2">
@@ -36,6 +42,7 @@
               <a href="mailto:{{person.obj.email}}">
                 <p>{{person.obj.email}}</p>
               </a>
+
               <p>Sent {{person.obj.messages.length}} Emails</p>
               <ul ng-repeat="email in person.obj.messages">
                 <li>{{email.body}}, {{email.date | date : 'd MMM y, h:mm a'}}</li>
