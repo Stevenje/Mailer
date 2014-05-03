@@ -1,5 +1,16 @@
 var app = angular.module('app', ['ui.bootstrap', 'ui.router']);
 
+app.factory('profiles', function ($http) {
+    'use strict';
+    return {
+        search: function (queryTerm) {
+            return $http.post('http://localhost:3000/search', {
+                "query": queryTerm
+            });
+        }
+    };
+});
+
 app.controller('AppCtrl', function ($scope, $http) {
     'use strict';
     $http.get('http://localhost:3000/profiles')
@@ -30,26 +41,27 @@ app.controller('AppCtrl', function ($scope, $http) {
     };
 });
 
-app.controller('SearchCtrl', function ($scope, $http) {
-
+app.controller('SearchCtrl', function ($scope, $http, $location, profiles) {
+    'use strict';
     $http.get('http://localhost:3000/templates')
-        .success(function(data){
-            console.log(data)
+        .success(function (data) {
+            console.log(data);
             $scope.templates = data;
             $scope.selectedOption = $scope.templates[0];
         });
 
-
-
     $scope.search = function () {
-        $http.post('http://localhost:3000/search', {'query': $scope.queryTerm })
+        $scope.loading = true;
+        profiles.search($scope.queryTerm)
             .success(function (data) {
                 $scope.results = data;
-            })
+                $scope.loading = false;
+//                $location.path($scope.queryTerm);
+            });
     };
 
     $scope.sendEmail = function (person) {
-        console.log('in function, data: ' + person);
+        console.log('Emailing: ' + person.name);
         $http.post('http://localhost:3000/email', person)
             .success(function (data) {
                 console.log(data);
@@ -73,13 +85,13 @@ app.controller('CompCtrl', function ($scope, $http) {
         $http.post('http://localhost:3000/comp', {'query': $scope.queryTerm })
             .success(function (data) {
                 $scope.results = data;
-            })
+            });
     };
 
 });
 
 app.controller('TempCtrl', function ($scope, $http) {
-
+    'use strict';
     $scope.addTemplate = function () {
         $http.post('http://localhost:3000/templates', {
             'client': $scope.client,
@@ -88,7 +100,7 @@ app.controller('TempCtrl', function ($scope, $http) {
             'html': $scope.html })
             .success(function (data) {
                 console.log(data);
-            })
+            });
     };
 
 });
@@ -114,5 +126,5 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state('template', {
             url: '/template',
             templateUrl: 'templates/partial-template.html'
-        })
+        });
 });
