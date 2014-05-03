@@ -14,5 +14,4 @@ Install
 1. git clone and cd into Mailer
 2. npm install
 3. bower install
-
 4. run data-pull.js to insert profiles into db
