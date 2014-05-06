@@ -27,7 +27,6 @@ app.controller('AppCtrl', function ($scope, $http) {
 
             $scope.$watch('currentPage + numPerPage', function () {
                 var begin = (($scope.currentPage - 1) * $scope.numPerPage), end = begin + $scope.numPerPage;
-
                 $scope.filteredPeople = $scope.people.slice(begin, end);
             });
         });
@@ -43,11 +42,20 @@ app.controller('AppCtrl', function ($scope, $http) {
 
 app.controller('SearchCtrl', function ($scope, $http, $location, profiles) {
     'use strict';
+
+    $scope.filteredPeople = [];
+    $scope.currentPage = 1;
+    $scope.itemsPerPage = 10;
+
+    $scope.numPages = function () {
+        return Math.ceil($scope.results.results.length / $scope.itemsPerPage);
+    };
+
     $http.get('http://localhost:3000/templates')
         .success(function (data) {
             console.log(data);
             $scope.templates = data;
-            $scope.selectedOption = $scope.templates[0];
+            $scope.selectedTemplate = $scope.templates[0];
         });
 
     $scope.search = function () {
@@ -56,9 +64,15 @@ app.controller('SearchCtrl', function ($scope, $http, $location, profiles) {
             .success(function (data) {
                 $scope.results = data;
                 $scope.loading = false;
-//                $location.path($scope.queryTerm);
+
+                $scope.$watch('currentPage + numPerPage', function () {
+                    var begin = (($scope.currentPage - 1) * $scope.itemsPerPage), end = begin + $scope.itemsPerPage;
+                    $scope.filteredPeople = $scope.results.results.slice(begin, end);
+                });
             });
     };
+
+
 
     $scope.sendEmail = function (person) {
         console.log('Emailing: ' + person.name);

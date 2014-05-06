@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="col-md-3">
-        <select data-ng-options="template.role for template in templates" data-ng-model="selectedOption"
+        <select data-ng-options="template.role for template in templates" data-ng-model="selectedTemplate"
                 class="form-control"></select>
       </div>
       <em class="pull-right">Found: {{results.stats.n}}, Responce: {{results.stats.timeMicros}}ms</em>
@@ -30,9 +30,12 @@
     <h1>Loading</h1>
   </div>
 
+  <div data-pagination="" data-num-pages="numPages()"
+       data-current-page="currentPage" data-max-size="maxSize"></div>
+
   <div class="container" id="results">
     <ul class="list-unstyled">
-      <li class="profile animated fadeIn" ng-repeat="person in results.results">
+      <li class="profile animated fadeIn" ng-repeat="person in filteredPeople">
         <div class="container">
           <div class="row">
             <div class="col-md-2">
