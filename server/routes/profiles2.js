@@ -46,7 +46,7 @@ exports.search = function(req, res) {
   var options, searchTerm;
   searchTerm = req.body.query;
   options = {
-    limit: 30
+    limit: 100
   };
   return Profile.textSearch(searchTerm, options, function(err, profiles) {
     if (err) {

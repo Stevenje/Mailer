@@ -28,7 +28,7 @@ exports.findById = (req, res) ->
 
 exports.search = (req, res) ->
   searchTerm = req.body.query
-  options = {limit: 30}
+  options = {limit: 100}
   Profile.textSearch searchTerm, options, (err, profiles) ->
     if err
       console.log err

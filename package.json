@@ -9,5 +9,8 @@
     "mongoose-text-search": "0.0.2",
     "email-existence": "^0.1.2",
     "underscore": "^1.6.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-cssmin": "^0.9.0"
   }
 }

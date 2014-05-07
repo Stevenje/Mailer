@@ -16,19 +16,19 @@ app.controller('AppCtrl', function ($scope, $http) {
     $http.get('http://localhost:3000/profiles')
         .success(function (data) {
             $scope.people = data;
-            $scope.filteredPeople = [];
-            $scope.currentPage = 1;
-            $scope.numPerPage = 10;
-            $scope.maxSize = 5;
-
-            $scope.numPages = function () {
-                return Math.ceil($scope.people.length / $scope.numPerPage);
-            };
-
-            $scope.$watch('currentPage + numPerPage', function () {
-                var begin = (($scope.currentPage - 1) * $scope.numPerPage), end = begin + $scope.numPerPage;
-                $scope.filteredPeople = $scope.people.slice(begin, end);
-            });
+//            $scope.filteredPeople = [];
+//            $scope.currentPage = 1;
+//            $scope.numPerPage = 10;
+//            $scope.maxSize = 5;
+//
+//            $scope.numPages = function () {
+//                return Math.ceil($scope.people.length / $scope.numPerPage);
+//            };
+//
+//            $scope.$watch('currentPage + numPerPage', function () {
+//                var begin = (($scope.currentPage - 1) * $scope.numPerPage), end = begin + $scope.numPerPage;
+//                $scope.filteredPeople = $scope.people.slice(begin, end);
+//            });
         });
 
     $scope.sendEmail = function (person) {
